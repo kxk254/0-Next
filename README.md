@@ -2,8 +2,8 @@
 
 npm install --save-dev prettier
 
-npx create-next-app@latest [my-nextjs] --typescript --eslint --tailwind --app
+npx create-next-app@latest [my-nextjs] --typescript --eslint --tailwind
 
-npx create-next-app@latest  [my-nextjs]  --typescript --eslint --tailwind --app --prettier
+npx create-next-app@latest  [my-nextjs]  --typescript --eslint --tailwind --prettier
 
 npm install -g typescript typescript-language-server
