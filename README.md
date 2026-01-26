@@ -8,6 +8,9 @@ npx create-next-app@latest  [my-nextjs]  --typescript --eslint --tailwind --pret
 
 npm install -g typescript typescript-language-server
 
+npm install --save-dev eslint-config-next eslint-plugin-react eslint-plugin-react-hooks @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-prettier
+
+
 ### 1️⃣ Root Level
 ```
 my-app/
