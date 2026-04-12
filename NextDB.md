@@ -145,3 +145,26 @@ type TodoDTO = {
 ---
 
 You’re basically aligning with how a lot of production CRUD systems are built — this is a solid foundation 👍
+
+
+✅ Immutable (correct way with prev)
+```
+setTodos(prev => [
+  ...prev,
+  newTodo
+]);
+```
+or:
+```
+setTodos(prev =>
+  prev.map(todo =>
+    todo.id === updated.id ? updated : todo
+  )
+);
+```
+or:
+```
+setTodos(prev =>
+  prev.filter(todo => todo.id !== id)
+);
+```
