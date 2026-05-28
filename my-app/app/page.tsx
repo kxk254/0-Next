@@ -1,27 +1,49 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
-type Theme = "light" | "dard" | "system";
-const ThemeContext = createContext<Theme>("system");
-
-const useGetTheme = () => useContext(ThemeContext);
+const ThemeContext = createContext(null);
 
 export default function MyApp() {
-  const [theme, setTheme] = useState<Theme>("light");
-
+  const [theme, setTheme] = useState("light");
   return (
     <ThemeContext value={theme}>
-      <MyComponent />
+      <Form />
+      <label>
+        <input
+          type="checkbox"
+          cheched="{theme === 'dark'}"
+          onChange={(e) => {
+            setTheme(e.target.checked ? "dark" : " light");
+          }}
+        />
+        use dark mode
+      </label>
     </ThemeContext>
   );
 }
 
-function MyComponent() {
-  const theme = useGetTheme();
-
+function Form({ chirldren }) {
   return (
-    <>
-      <p>Current Theme: {theme}</p>
-    </>
+    <Panel title="Welcome">
+      <Button>Sign up</Button>
+      <Button>Log in</Button>
+    </Panel>
   );
+}
+
+function Panel({ title, children }) {
+  const theme = useContext(ThemeContext);
+  const className = "panel-" + theme;
+  return (
+    <section className={className}>
+      <h1>{title}</h1>
+      {children}
+    </section>
+  );
+}
+
+function Button({ children }) {
+  const theme = useContext(ThemeContext);
+  const className = "button-" + theme;
+  return <button className={className}>{children}</button>;
 }
